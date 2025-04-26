@@ -87,13 +87,13 @@ class chat_openai():
         if self.client is None:
             try:
                 self.client = OpenAI()
-            except Exception:
-                print("chat: failed to connect to OpenAI")
+            except Exception as e:
+                print(f"chat: failed to connect to OpenAI {e}")
                 return False
 
         # check connection again just to be sure
         if self.client is None:
-            print("chat: failed to connect to OpenAI")
+            print("chat: failed to connect to OpenAI no client")
             return False
 
         # get assistant id
@@ -106,13 +106,13 @@ class chat_openai():
 
             # search for assistant with the expected name
             for existing_assistant in my_assistants.data:
-                if existing_assistant.name == "UTM Manager":
+                if existing_assistant.name == "UTM Manager Assistant":
                     self.assistant = existing_assistant
                     break
 
             # raise error if assistant not found
             if self.assistant is None:
-                print("chat: failed to connect to OpenAI assistant")
+                print("chat: failed to connect to OpenAI assistant no assistant")
                 return False
 
         # create new thread
@@ -149,7 +149,7 @@ class chat_openai():
 
             # check connection
             if not self.check_connection():
-                self.send_reply("chat: failed to connect to OpenAI")
+                self.send_reply("chat: failed to connect to OpenAI, no connection")
                 return
 
             # create a new message

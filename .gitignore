@@ -16,3 +16,4 @@ MANIFEST
 windows/version.txt
 /.vscode
 mavproxy_utm.py
+/mavproxyvenv

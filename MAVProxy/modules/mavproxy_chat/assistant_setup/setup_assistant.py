@@ -44,7 +44,7 @@ def main(openai_api_key=None, assistant_name=None, model_name=None, upgrade=Fals
 
     # use assistant name if provided, otherwise use default
     if assistant_name is None:
-        assistant_name = "ArduPilot Vehicle Control via MAVLink"
+        assistant_name = "UTM Manager Assistant"
 
     # use model name if provided, otherwise use default
     if model_name is None:
